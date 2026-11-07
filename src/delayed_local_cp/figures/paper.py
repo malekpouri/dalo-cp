@@ -154,7 +154,7 @@ def f4():
     import matplotlib.pyplot as plt
     from matplotlib.colors import TwoSlopeNorm
 
-    fig, axes = plt.subplots(1, 3, figsize=(style.DOUBLE_COL_IN, 2.1), sharey=True)
+    fig, axes = plt.subplots(1, 3, figsize=(style.DOUBLE_COL_IN, 2.3), sharey=True)
     norm = TwoSlopeNorm(vmin=0.55, vcenter=0.9, vmax=1.0)
     lo, hi, w = 5000, 9500, 300
     im = None
@@ -163,12 +163,13 @@ def f4():
         im = ax.imshow(m, aspect="auto", origin="lower", cmap="PuOr", norm=norm, extent=(lo - 6000, hi - 6000, -0.5, 5.5))
         ax.axvline(0, color="k", lw=0.6, ls=":")
         ax.set_title(fname(lab))
-        ax.set_xlabel("Rounds since the shift")
+        ax.set_xticks([0, 3000])
         for s in ax.spines.values():
             s.set_visible(False)
     axes[0].set_ylabel("Region (odd: slow)")
     axes[0].set_yticks(range(6))
-    fig.colorbar(im, ax=axes, shrink=0.9, label="Coverage (target 0.90 is neutral)")
+    fig.supxlabel("Rounds since the shift", y=-0.02, fontsize=7.5)
+    fig.colorbar(im, ax=axes, shrink=0.9, label="Coverage (0.90 neutral)")
     _save(fig, "F4_heatmap")
 
 
@@ -184,12 +185,12 @@ def f5(sens):
             st = style.method_style(f)
             ax.plot(ms, [t[f"{lab}|{m}"]["worst"] for m in ms], color=st["color"], ls=st["ls"], marker="o", ms=3, label=st["label"], lw=1.6 if f == "dalo_cp" else 1.1)
         ax.axhline(t[f"{ORACLE}|1"]["worst"], color=style.OKABE_ITO["vermillion"], lw=0.7, ls=":")
-        ax.text(400, t[f"{ORACLE}|1"]["worst"] + 0.012, "DALO-CP, no delay", fontsize=6.5, color="0.25", ha="right")
+        ax.text(1.1, t[f"{ORACLE}|1"]["worst"] + 0.035, "DALO-CP, no delay", fontsize=6, color="0.25", ha="left")
         ax.set_xscale("log")
         ax.set_title(f"{kind.capitalize()} delay")
-        ax.set_xlabel("Slow-region mean delay (fast region: 1)")
     axes[0].set_ylabel("Worst region-window coverage")
     axes[1].legend(frameon=False, loc="lower left")
+    fig.supxlabel("Slow-region mean delay (fast region: 1)", y=-0.02, fontsize=7.5)
     _save(fig, "F5_gap_vs_delay")
 
 
@@ -258,7 +259,7 @@ def f8(diag):
         ax.set_xticklabels(["1 h", "6 h", "1 d", "3 d", "7 d"])
         ax.set_title(title)
         ax.set_xlabel("Time since the click")
-        ax.legend(frameon=False)
+        ax.legend(frameon=False, loc="upper right", fontsize=6)
     axes[0].set_ylabel("Share of labels not yet arrived")
     _save(fig, "F8_trace_delay")
 
@@ -267,7 +268,7 @@ def f9(res):
     import matplotlib.pyplot as plt
 
     panels = [(res["designs"]["elec2"]["table"], "ELEC2 (simulated delays)"), (res["trace"]["trace_p"]["table"], "TRACE, price regions"), (res["trace"]["trace_d"]["table"], "TRACE, delay regions")]
-    fig, axes = plt.subplots(1, 3, figsize=(style.DOUBLE_COL_IN, 2.6), sharex=False)
+    fig, axes = plt.subplots(1, 3, figsize=(style.DOUBLE_COL_IN, 3.0), sharex=False)
     for ax, (t, title) in zip(axes, panels):
         rows = sorted(((v["worst"], fname(l), family(l)) for l, v in t.items() if family(l) and family(l) != "regional_aci_oracle"), key=lambda r: r[0])
         for i, (w, name, f) in enumerate(rows):
@@ -276,8 +277,11 @@ def f9(res):
             ax.scatter(w, i, s=24 if hi else 13, color=style.OKABE_ITO["vermillion"] if hi else "0.35", marker="o" if f != "dalo_oracle" else "D", zorder=3)
         ax.set_yticks(range(len(rows)))
         ax.set_yticklabels([r[1] for r in rows], fontsize=6)
-        ax.set_title(title)
-        ax.set_xlabel("Worst window coverage")
+        ax.set_title(title, fontsize=7)
+        from matplotlib.ticker import MaxNLocator
+        ax.xaxis.set_major_locator(MaxNLocator(2))
+        ax.tick_params(axis="x", labelsize=6)
+    fig.supxlabel("Worst region-window coverage", fontsize=7.5)
     fig.tight_layout()
     _save(fig, "F9_real_data")
 
@@ -453,11 +457,17 @@ def tables_and_numbers(res, sens, diag, stream, theory, tv):
 
     tab = PAPER_DIR / "tables"
     tab.mkdir(exist_ok=True)
-    rows = []
+    rows, rows_ci = [], []
+    short = {"regional_aci": "Reg. ACI", "olcp": "OLCP", "aci": "ACI", "static_lcp": "Static LCP", "dtaci": "DtACI", "split_cp": "Split CP", "weighted_cp": "Weighted CP", "delayed_aci": "Del. ACI", "ipw_aci": "IPW-ACI"}
     for key, name in DESIGN_NAME.items():
-        s = d[key]
-        rows.append(f"{name} & {fname(s['comparator'])} & {s['gain']:+.3f} & [{s['gain_lo']:+.3f}, {s['gain_hi']:+.3f}] & {s['width_ratio']:.3f} & {r['all']['dalo_regret_by_design'][key]:.3f} & {r['competitor_regret_by_design']['regional_aci'][key]:.3f} & {r['competitor_regret_by_design']['olcp'][key]:.3f} \\\\")
-    (tab / "main_results.tex").write_text("\\begin{tabular}{llrcrrrr}\n\\toprule\n& \\multicolumn{4}{c}{DALO-CP against the best near-valid baseline} & \\multicolumn{3}{c}{Regret of each family}\\\\\n\\cmidrule(lr){2-5}\\cmidrule(lr){6-8}\nDesign & Baseline & Gain & 95\\% CI (descriptive) & Width ratio & DALO-CP & Regional ACI & OLCP\\\\\n\\midrule\n" + "\n".join(rows).replace("+", "$+$").replace("-0", "$-$0") + "\n\\bottomrule\n\\end{tabular}\n", encoding="utf-8")
+        s_ = d[key]
+        code = name.split(" ")[0]
+        rows.append(f"{code} & {short.get(family(s_['comparator']), fname(s_['comparator']))} & {s_['gain']:+.3f} & {s_['width_ratio']:.3f} & {r['all']['dalo_regret_by_design'][key]:.3f} & {r['competitor_regret_by_design']['regional_aci'][key]:.3f} & {r['competitor_regret_by_design']['olcp'][key]:.3f} \\\\")
+        rows_ci.append(f"{name} & {fname(s_['comparator'])} & {s_['gain']:+.3f} & [{s_['gain_lo']:+.3f}, {s_['gain_hi']:+.3f}] \\\\")
+    fix = lambda t: t.replace("+0.000", "0.000").replace("-0.000", "0.000").replace("+", "$+$").replace("-0", "$-$0")
+    (tab / "main_results.tex").write_text("\\begin{tabular}{llrrrrr}\n\\toprule\n& \\multicolumn{3}{c}{DALO-CP vs best baseline} & \\multicolumn{3}{c}{Regret}\\\\\n\\cmidrule(lr){2-4}\\cmidrule(lr){5-7}\nDesign & Baseline & Gain & Width & DALO & Reg. ACI & OLCP\\\\\n\\midrule\n"
+                                          + fix("\n".join(rows)) + "\n\\bottomrule\n\\end{tabular}\n", encoding="utf-8")
+    (tab / "main_results_ci.tex").write_text("\\begin{tabular}{llrc}\n\\toprule\nDesign & Best near-valid baseline & Gain & Descriptive 95\\% interval\\\\\n\\midrule\n" + fix("\n".join(rows_ci)) + "\n\\bottomrule\n\\end{tabular}\n", encoding="utf-8")
     rows = []
     for part, name in (("trace_p", "Price regions"), ("trace_d", "Delay regions")):
         t = res["trace"][part]["table"]

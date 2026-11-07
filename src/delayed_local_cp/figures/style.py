@@ -7,8 +7,9 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
-SINGLE_COL_IN = 3.5
-DOUBLE_COL_IN = 7.2
+# Pattern Recognition text width: A4 minus 4.8 + 4.8 cm margins = 11.4 cm.
+SINGLE_COL_IN = 4.45
+DOUBLE_COL_IN = 4.45
 
 # Okabe-Ito colorblind-safe palette.
 OKABE_ITO = {
@@ -39,8 +40,8 @@ def method_style(label: str) -> dict:
 
 def apply() -> None:
     plt.rcParams.update({
-        "font.size": 8, "axes.labelsize": 8, "axes.titlesize": 8, "legend.fontsize": 7,
-        "xtick.labelsize": 7, "ytick.labelsize": 7, "lines.linewidth": 1.2,
+        "font.size": 7.5, "axes.labelsize": 7.5, "axes.titlesize": 7.5, "legend.fontsize": 6.5,
+        "xtick.labelsize": 6.5, "ytick.labelsize": 6.5, "lines.linewidth": 1.1,
         "axes.spines.top": False, "axes.spines.right": False,
-        "savefig.bbox": "tight", "savefig.dpi": 200, "pdf.fonttype": 42, "ps.fonttype": 42,
+        "savefig.bbox": "tight", "savefig.dpi": 300, "pdf.fonttype": 42, "ps.fonttype": 42,
     })

@@ -1,6 +1,6 @@
 # DALO-CP
 
-Code for *How Much Coverage Is Possible After a Shift When Labels Arrive Late? Limits and a Case Study in Local Conformal Prediction* (manuscript, not yet peer reviewed).
+Code for *Coverage Limits for Local Conformal Prediction under Covariate-Dependent Label Delay* (manuscript, not yet peer reviewed).
 
 Project page for reviewers: https://malekpouri.github.io/dalo-cp/. How to reproduce the results: [`docs/reproduce.md`](docs/reproduce.md). Pre-specified protocols: [`docs/protocol.md`](docs/protocol.md).
 
