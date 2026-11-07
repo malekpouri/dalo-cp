@@ -19,6 +19,8 @@ Then, in the runner container (`make shell`):
 ```bash
 python scripts/m5_analysis.py          # robustness criterion, TRACE summary
 python scripts/m5_sensitivity.py       # delay, settings, region count, ablation
+python scripts/m5_nearvalid.py         # exploratory: near-valid band
+python scripts/m5x_trace_tau.py        # exploratory: age scale on TRACE (run m5x_trace_tau_* configs first)
 python scripts/theory_checks.py        # numerical checks of the bounds
 python scripts/theory_summary.py
 python scripts/theory_stream.py 200    # stream-level bound and detector

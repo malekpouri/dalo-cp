@@ -1,0 +1,401 @@
+{
+ "0.01": {
+  "held_out": {
+   "margin": 0.04989999999999983,
+   "lo": 0.035299999999999776,
+   "hi": 0.05870250000000018,
+   "best_competitor": "olcp",
+   "dalo_max_regret": 0.0031999999999999806,
+   "not_near_valid": {
+    "delayed_aci": [
+     "a06_gradual",
+     "a07_recurring",
+     "a08_variance",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay"
+    ],
+    "weighted_cp": [
+     "a06_gradual",
+     "a07_recurring",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay"
+    ],
+    "ipw_aci": [
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay"
+    ],
+    "split_cp": [
+     "a06_gradual",
+     "a07_recurring",
+     "a08_variance",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay"
+    ],
+    "regional_aci": [],
+    "dalo_cp": [],
+    "dtaci": [],
+    "olcp": [],
+    "static_lcp": [
+     "a06_gradual",
+     "a07_recurring",
+     "a08_variance",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay",
+     "a12_continuous_x_delay"
+    ],
+    "aci": []
+   }
+  },
+  "all": {
+   "margin": 0.04730000000000023,
+   "lo": -1.0,
+   "hi": 0.05689999999999996,
+   "best_competitor": "regional_aci",
+   "dalo_max_regret": 0.005999999999999783,
+   "not_near_valid": {
+    "static_lcp": [
+     "a01_local_geometric",
+     "a02_local_fixed",
+     "a03_smooth_alternating",
+     "a04_smooth_gradient",
+     "a05_nonsmooth_fast_only",
+     "a06_gradual",
+     "a07_recurring",
+     "a08_variance",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay",
+     "a12_continuous_x_delay",
+     "elec2"
+    ],
+    "dtaci": [],
+    "split_cp": [
+     "a01_local_geometric",
+     "a02_local_fixed",
+     "a06_gradual",
+     "a07_recurring",
+     "a08_variance",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay"
+    ],
+    "ipw_aci": [
+     "a02_local_fixed",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay"
+    ],
+    "delayed_aci": [
+     "a01_local_geometric",
+     "a02_local_fixed",
+     "a06_gradual",
+     "a07_recurring",
+     "a08_variance",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay"
+    ],
+    "olcp": [],
+    "weighted_cp": [
+     "a01_local_geometric",
+     "a02_local_fixed",
+     "a06_gradual",
+     "a07_recurring",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay"
+    ],
+    "dalo_cp": [],
+    "regional_aci": [],
+    "aci": []
+   }
+  }
+ },
+ "0.015": {
+  "held_out": {
+   "margin": 0.04989999999999983,
+   "lo": 0.035299999999999776,
+   "hi": 0.05870250000000018,
+   "best_competitor": "olcp",
+   "dalo_max_regret": 0.0031999999999999806,
+   "not_near_valid": {
+    "delayed_aci": [
+     "a07_recurring"
+    ],
+    "weighted_cp": [
+     "a09_covariate_and_mean"
+    ],
+    "ipw_aci": [
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay"
+    ],
+    "split_cp": [
+     "a07_recurring",
+     "a09_covariate_and_mean"
+    ],
+    "regional_aci": [],
+    "dalo_cp": [],
+    "dtaci": [],
+    "olcp": [],
+    "static_lcp": [
+     "a06_gradual",
+     "a07_recurring",
+     "a08_variance",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay",
+     "a12_continuous_x_delay"
+    ],
+    "aci": []
+   }
+  },
+  "all": {
+   "margin": 0.04730000000000023,
+   "lo": 0.028684999999999947,
+   "hi": 0.05709999999999993,
+   "best_competitor": "regional_aci",
+   "dalo_max_regret": 0.005999999999999783,
+   "not_near_valid": {
+    "static_lcp": [
+     "a01_local_geometric",
+     "a02_local_fixed",
+     "a03_smooth_alternating",
+     "a04_smooth_gradient",
+     "a05_nonsmooth_fast_only",
+     "a06_gradual",
+     "a07_recurring",
+     "a08_variance",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay",
+     "a12_continuous_x_delay",
+     "elec2"
+    ],
+    "dtaci": [],
+    "split_cp": [
+     "a07_recurring",
+     "a09_covariate_and_mean"
+    ],
+    "ipw_aci": [
+     "a02_local_fixed",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay"
+    ],
+    "delayed_aci": [
+     "a07_recurring"
+    ],
+    "olcp": [],
+    "weighted_cp": [
+     "a09_covariate_and_mean"
+    ],
+    "dalo_cp": [],
+    "regional_aci": [],
+    "aci": []
+   }
+  }
+ },
+ "0.02": {
+  "held_out": {
+   "margin": 0.04989999999999983,
+   "lo": 0.035299999999999776,
+   "hi": 0.05870250000000018,
+   "best_competitor": "olcp",
+   "dalo_max_regret": 0.0031999999999999806,
+   "not_near_valid": {
+    "delayed_aci": [],
+    "weighted_cp": [],
+    "ipw_aci": [
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay"
+    ],
+    "split_cp": [],
+    "regional_aci": [],
+    "dalo_cp": [],
+    "dtaci": [],
+    "olcp": [],
+    "static_lcp": [
+     "a06_gradual",
+     "a07_recurring",
+     "a08_variance",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay",
+     "a12_continuous_x_delay"
+    ],
+    "aci": []
+   }
+  },
+  "all": {
+   "margin": 0.04730000000000023,
+   "lo": 0.03260000000000018,
+   "hi": 0.05710000000000015,
+   "best_competitor": "regional_aci",
+   "dalo_max_regret": 0.005999999999999783,
+   "not_near_valid": {
+    "static_lcp": [
+     "a01_local_geometric",
+     "a02_local_fixed",
+     "a03_smooth_alternating",
+     "a04_smooth_gradient",
+     "a05_nonsmooth_fast_only",
+     "a06_gradual",
+     "a07_recurring",
+     "a08_variance",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay",
+     "a12_continuous_x_delay",
+     "elec2"
+    ],
+    "dtaci": [],
+    "split_cp": [],
+    "ipw_aci": [
+     "a02_local_fixed",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay"
+    ],
+    "delayed_aci": [],
+    "olcp": [],
+    "weighted_cp": [],
+    "dalo_cp": [],
+    "regional_aci": [],
+    "aci": []
+   }
+  }
+ },
+ "0.025": {
+  "held_out": {
+   "margin": 0.04989999999999983,
+   "lo": 0.035299999999999776,
+   "hi": 0.05870250000000018,
+   "best_competitor": "olcp",
+   "dalo_max_regret": 0.0031999999999999806,
+   "not_near_valid": {
+    "delayed_aci": [],
+    "weighted_cp": [],
+    "ipw_aci": [
+     "a11_heavy_tailed_delay"
+    ],
+    "split_cp": [],
+    "regional_aci": [],
+    "dalo_cp": [],
+    "dtaci": [],
+    "olcp": [],
+    "static_lcp": [
+     "a06_gradual",
+     "a07_recurring",
+     "a08_variance",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay",
+     "a12_continuous_x_delay"
+    ],
+    "aci": []
+   }
+  },
+  "all": {
+   "margin": 0.04730000000000023,
+   "lo": 0.03259499999999986,
+   "hi": 0.05710000000000015,
+   "best_competitor": "regional_aci",
+   "dalo_max_regret": 0.005999999999999783,
+   "not_near_valid": {
+    "static_lcp": [
+     "a01_local_geometric",
+     "a02_local_fixed",
+     "a03_smooth_alternating",
+     "a04_smooth_gradient",
+     "a05_nonsmooth_fast_only",
+     "a06_gradual",
+     "a07_recurring",
+     "a08_variance",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay",
+     "a12_continuous_x_delay"
+    ],
+    "dtaci": [],
+    "split_cp": [],
+    "ipw_aci": [
+     "a02_local_fixed",
+     "a11_heavy_tailed_delay"
+    ],
+    "delayed_aci": [],
+    "olcp": [],
+    "weighted_cp": [],
+    "dalo_cp": [],
+    "regional_aci": [],
+    "aci": []
+   }
+  }
+ },
+ "0.03": {
+  "held_out": {
+   "margin": 0.04989999999999983,
+   "lo": 0.035299999999999776,
+   "hi": 0.05870250000000018,
+   "best_competitor": "olcp",
+   "dalo_max_regret": 0.0031999999999999806,
+   "not_near_valid": {
+    "delayed_aci": [],
+    "weighted_cp": [],
+    "ipw_aci": [
+     "a11_heavy_tailed_delay"
+    ],
+    "split_cp": [],
+    "regional_aci": [],
+    "dalo_cp": [],
+    "dtaci": [],
+    "olcp": [],
+    "static_lcp": [
+     "a06_gradual",
+     "a07_recurring",
+     "a08_variance",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay",
+     "a12_continuous_x_delay"
+    ],
+    "aci": []
+   }
+  },
+  "all": {
+   "margin": 0.04730000000000023,
+   "lo": 0.03139999999999987,
+   "hi": 0.05710000000000015,
+   "best_competitor": "regional_aci",
+   "dalo_max_regret": 0.005999999999999783,
+   "not_near_valid": {
+    "static_lcp": [
+     "a01_local_geometric",
+     "a02_local_fixed",
+     "a03_smooth_alternating",
+     "a04_smooth_gradient",
+     "a05_nonsmooth_fast_only",
+     "a06_gradual",
+     "a07_recurring",
+     "a08_variance",
+     "a09_covariate_and_mean",
+     "a10_y_dependent_delay",
+     "a11_heavy_tailed_delay",
+     "a12_continuous_x_delay"
+    ],
+    "dtaci": [],
+    "split_cp": [],
+    "ipw_aci": [
+     "a02_local_fixed",
+     "a11_heavy_tailed_delay"
+    ],
+    "delayed_aci": [],
+    "olcp": [],
+    "weighted_cp": [],
+    "dalo_cp": [],
+    "regional_aci": [],
+    "aci": []
+   }
+  }
+ }
+}

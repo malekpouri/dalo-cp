@@ -1,8 +1,8 @@
 # DALO-CP
 
-Code for *Conformal Prediction with Local Guarantees under Distribution Shift and Covariate-Dependent Label Delay* (manuscript in preparation).
+Code for *How Much Coverage Is Possible After a Shift When Labels Arrive Late? Limits and a Case Study in Local Conformal Prediction* (manuscript, not yet peer reviewed).
 
-Project page for reviewers: https://malekpouri.github.io/dalo-cp/. How to reproduce the results: [`docs/reproduce.md`](docs/reproduce.md). Pre-registered protocols: [`docs/protocol.md`](docs/protocol.md).
+Project page for reviewers: https://malekpouri.github.io/dalo-cp/. How to reproduce the results: [`docs/reproduce.md`](docs/reproduce.md). Pre-specified protocols: [`docs/protocol.md`](docs/protocol.md).
 
 ## The short version
 
@@ -14,7 +14,7 @@ When labels arrive late, and how late depends on the input, a prediction interva
 
 ## What the results say
 
-- The pre-registered robustness criterion **passed** on 13 designs with simulated delays or shifts.
+- The pre-specified robustness criterion **passed** on 13 designs with simulated delays or shifts.
 - A pre-specified superiority test (gain of at least 0.03) **failed**.
 - On real delays (TRACE), DALO-CP **fell behind** several baselines, and a simpler variant did better.
 
@@ -51,7 +51,7 @@ Datasets are not redistributed. `scripts/download_datasets.sh` fetches them from
 
 ## Status and AI use
 
-The manuscript has not been peer reviewed. Proofs were reviewed by the authors, not by an outside reader. Claude Code (Anthropic) helped write software, run experiments, and draft text and proofs, and ChatGPT (OpenAI) assisted in rewriting text, under the authors' oversight and final approval.
+The manuscript has not been peer reviewed. Claude Code (Anthropic) helped write software, run experiments, and draft text and proofs, and ChatGPT (OpenAI) assisted in rewriting text, under the authors' oversight and final approval.
 
 ## Citation and licence
 

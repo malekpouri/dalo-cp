@@ -1,0 +1,108 @@
+# EXPLORATORY, outside the pre-specified protocol (requested by a reviewer): DALO-CP's age scale on TRACE. Seeds as in M5.
+name: m5x_trace_tau_p
+alpha: 0.1
+dataset:
+  use: trace
+  partition: P
+delay:
+  type: real
+shifts: []
+eval:
+  window: 100
+  burn_in: 500
+runtime:
+  log_every: 2000
+methods:
+- type: dalo_cp
+  eta_rel: 0.05
+  window: 250
+  age_tau: 25
+  arrival_ipw: true
+  borrow:
+    'on': true
+    lambda: 1.0
+    cap_rel: 1.0
+  label: dalo_agei25_e0.05_b
+- type: dalo_cp
+  eta_rel: 0.05
+  window: 250
+  age_tau: 5
+  arrival_ipw: true
+  borrow:
+    'on': true
+    lambda: 1.0
+    cap_rel: 1.0
+  label: x_tau5
+- type: dalo_cp
+  eta_rel: 0.05
+  window: 250
+  age_tau: 10
+  arrival_ipw: true
+  borrow:
+    'on': true
+    lambda: 1.0
+    cap_rel: 1.0
+  label: x_tau10
+- type: dalo_cp
+  eta_rel: 0.05
+  window: 250
+  age_tau: 50
+  arrival_ipw: true
+  borrow:
+    'on': true
+    lambda: 1.0
+    cap_rel: 1.0
+  label: x_tau50
+- type: dalo_cp
+  eta_rel: 0.05
+  window: 250
+  age_tau: 100
+  arrival_ipw: true
+  borrow:
+    'on': true
+    lambda: 1.0
+    cap_rel: 1.0
+  label: x_tau100
+- type: dalo_cp
+  eta_rel: 0.05
+  window: 250
+  age_tau: 200
+  arrival_ipw: true
+  borrow:
+    'on': true
+    lambda: 1.0
+    cap_rel: 1.0
+  label: x_tau200
+- type: dalo_cp
+  eta_rel: 0.05
+  window: 250
+  age_tau: 1000
+  arrival_ipw: true
+  borrow:
+    'on': true
+    lambda: 1.0
+    cap_rel: 1.0
+  label: x_tau1000
+- type: dalo_cp
+  eta_rel: 0.05
+  window: 250
+  age_tau: null
+  arrival_ipw: true
+  borrow:
+    'on': true
+    lambda: 1.0
+    cap_rel: 1.0
+  label: x_tau_none
+- type: dalo_cp
+  eta_rel: 0.05
+  window: 250
+  age_tau: 25
+  arrival_ipw: false
+  borrow:
+    'on': true
+    lambda: 1.0
+    cap_rel: 1.0
+  label: x_no_ipw
+seeds:
+  start: 3000
+  count: 10

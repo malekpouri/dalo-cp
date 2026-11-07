@@ -43,14 +43,14 @@ footer{margin-top:64px;padding:26px 0 54px;border-top:1px solid var(--line);font
 <h1>When labels arrive late, how much coverage is possible?</h1>
 <p class="lede">Prediction intervals adapt by seeing their own errors. If the labels of some inputs arrive late, a method can look fine overall while a slow region has shifted and stays badly under-covered.</p>
 <p class="byline">Mohammad Malekpouri and Somayeh Lotfi · Department of Computer Engineering, B.A.C., Islamic Azad University, Bandar Abbas, Iran</p>
-<div class="links"><a href="#review">How to review</a><a href="https://github.com/malekpouri/dalo-cp">Code on GitHub</a><a href="reproduce.html">Reproduce the results</a><a href="protocol.html">Pre-registered protocols</a></div>
+<div class="links"><a href="#review">How to review</a><a href="https://github.com/malekpouri/dalo-cp">Code on GitHub</a><a href="reproduce.html">Reproduce the results</a><a href="protocol.html">Pre-specified protocols</a></div>
 </header>
 
 <figure class="hero"><img src="figures/F1_timeline.png" alt="Two rows of rounds. Labels in the fast region arrive soon after each interval is issued. Labels in the slow region arrive much later, so after a shift there is a stretch with no post-shift label."><figcaption>Labels of a slow region arrive late, so a shift goes unseen for a while. Illustration.</figcaption></figure>
 
 <section id="review" class="review">
 <h2>For reviewers</h2>
-<p>This page supports review of the article <em>Conformal Prediction with Local Guarantees under Distribution Shift and Covariate-Dependent Label Delay</em>. The manuscript itself is not posted here. To review it, please ask the corresponding author, <a href="mailto:m.malekpouri@iau.ir">Mohammad Malekpouri</a>.</p>
+<p>This page supports review of the article <em>How Much Coverage Is Possible After a Shift When Labels Arrive Late? Limits and a Case Study in Local Conformal Prediction</em>. The manuscript itself is not posted here. To review it, please ask the corresponding author, <a href="mailto:m.malekpouri@iau.ir">Mohammad Malekpouri</a>.</p>
 <p>Most useful to check:</p>
 <ul>
 <li><strong>The theory.</strong> Is the stream-level bound correct, and is its false-alarm assumption reasonable? Is any of it already known in change detection with delayed observations?</li>
@@ -62,9 +62,9 @@ footer{margin-top:64px;padding:26px 0 54px;border-top:1px solid var(--line);font
 <h2>The findings, including what failed</h2>
 <div class="verdicts">
 <div class="v"><div class="tag pass">Holds</div><p><b>An explicit limit for any threshold method</b>On a Gaussian two-point instance, the label information available after a shift is an explicit functional of the delay law, including delay that depends on the input.</p></div>
-<div class="v"><div class="tag pass">Passed</div><p><b>Robustness on 13 designs, fixed in advance</b>DALO-CP's largest regret was 0.006, against 0.053 for the best baseline family. Fresh seeds and designs not used for tuning, though we also wrote those designs.</p></div>
+<div class="v"><div class="tag pass">Passed</div><p><b>Robustness on 13 designs, specified in advance</b>DALO-CP's largest regret was 0.006, against 0.053 for the best baseline family. Fresh seeds and designs not used for tuning, though we also wrote those designs.</p></div>
 <div class="v"><div class="tag fail">Failed</div><p><b>Clear superiority over the baselines</b>We required a gain of at least 0.03. Gains were at most +0.018. On ELEC2, intervals were also about 20% wider.</p></div>
-<div class="v"><div class="tag fail">Behind</div><p><b>Real delays on TRACE</b>Regret of 0.050 and 0.079, last of ten method families on one partition. A simpler variant did better. Delay itself did cost real coverage, which is why the problem matters.</p></div>
+<div class="v"><div class="tag fail">Behind</div><p><b>Real delays on TRACE</b>Regret of 0.050 and 0.079, last of ten method families on one partition. An exploratory rerun shows strong age weighting hurts under such skewed delay, but no variant reached the best baseline. Delay itself did cost real coverage, which is why the problem matters.</p></div>
 </div>
 <p>We do not recommend DALO-CP under strongly skewed real delays without further work. The limits are the firmer result.</p>
 
@@ -91,7 +91,7 @@ footer{margin-top:64px;padding:26px 0 54px;border-top:1px solid var(--line);font
 <ul>
 <li>The bounds are two-point arguments on Gaussian residuals, for symmetric intervals around a frozen predictor.</li>
 <li>The stream-level result assumes whole-stream control that the methods we tested do not have.</li>
-<li>The proofs were reviewed by the authors, not by an outside reader, and the manuscript has not been peer reviewed.</li>
+<li>The manuscript has not been peer reviewed.</li>
 <li>TRACE is one stream, conditional on conversion, so results say nothing about clicks without a purchase.</li>
 <li>We found no equivalent result in a targeted search, but it was not systematic, so we make no claim of being first.</li>
 </ul>

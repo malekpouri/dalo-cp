@@ -97,6 +97,9 @@ def design_summary(D, target):
     return res
 
 
+BAND = 0.02  # near-valid band; changed only by scripts/m5_nearvalid.py (exploratory sensitivity)
+
+
 def regret_table(data, designs, target, rng=None):
     """Per family: regret in each design; a family that is not near-valid in a design has infinite regret there."""
     out = defaultdict(dict)
@@ -110,7 +113,7 @@ def regret_table(data, designs, target, rng=None):
             ks = list(units)
             idx = ks if rng is None else [ks[i] for i in rng.integers(0, len(ks), len(ks))]
             means[f] = (float(np.mean([units[k]["worst"] for k in idx])), float(np.mean([units[k]["marginal"] for k in idx])))
-        nv = {f: v[0] for f, v in means.items() if target - 0.02 <= v[1] <= target + 0.02}
+        nv = {f: v[0] for f, v in means.items() if target - BAND <= v[1] <= target + BAND}
         top = max(nv.values())
         for f, (w, _) in means.items():
             out[f][d] = (top - w) if f in nv else float("inf")

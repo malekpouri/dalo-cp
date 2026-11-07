@@ -1,4 +1,4 @@
-# Pre-registered protocols
+# Pre-specified protocols
 
 Copied unchanged from the project's decision log. The protocol commits predate the runs they govern.
 

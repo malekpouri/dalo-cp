@@ -15,6 +15,8 @@ include:
   - scripts/make_m5_trace_configs.py
   - scripts/run_m5.sh
   - scripts/m5_sensitivity.py
+  - scripts/m5_nearvalid.py
+  - scripts/m5x_trace_tau.py
   - scripts/m5_analysis.py
   - scripts/theory_checks.py
   - scripts/theory_summary.py
@@ -38,6 +40,8 @@ summaries:
   - m3confirm_gate.json
   - m5_results.json
   - m5_sensitivity.json
+  - m5_nearvalid.json
+  - m5x_trace_tau.json
   - trace_diagnostics.json
   - theory_summary.json
   - theory_tvstar.json
