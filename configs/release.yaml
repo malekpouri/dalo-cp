@@ -25,6 +25,7 @@ map:
   release/README.md: README.md
   release/download_datasets.sh: scripts/download_datasets.sh
   release/docs/: docs/
+  paper/figures/F1_timeline.png: docs/figures/F1_timeline.png
   paper/figures/F3_recovery.png: docs/figures/F3_recovery.png
   paper/figures/F5_gap_vs_delay.png: docs/figures/F5_gap_vs_delay.png
   paper/figures/F7_tradeoff.png: docs/figures/F7_tradeoff.png
@@ -45,4 +46,4 @@ summaries:
 forbidden: [datasets/, runs/, .env, reports/, literature/, paper/, theory/, PROJECT_BRIEF.md, "*.pdf", "*.tex", "*.pkl", "*.parquet", "*.zip"]
 max_file_bytes: 10000000
 # E-mail addresses allowed in a release, and only in these files.
-allowed_email_files: [CITATION.cff]
+allowed_email_files: [CITATION.cff, docs/index.html]

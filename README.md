@@ -2,7 +2,7 @@
 
 Code for *Conformal Prediction with Local Guarantees under Distribution Shift and Covariate-Dependent Label Delay* (manuscript in preparation).
 
-Project page: `docs/index.html`. How to reproduce the results: [`docs/reproduce.md`](docs/reproduce.md). Pre-registered protocols: [`docs/protocol.md`](docs/protocol.md).
+Project page for reviewers: https://malekpouri.github.io/dalo-cp/. How to reproduce the results: [`docs/reproduce.md`](docs/reproduce.md). Pre-registered protocols: [`docs/protocol.md`](docs/protocol.md).
 
 ## The short version
 

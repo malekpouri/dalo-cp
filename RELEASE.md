@@ -1,4 +1,4 @@
 # Release
 
-Built by `make release` from source commit `392ee05f7b60eae93f9225f1a91614865c1af28a`, tag `release-v1`.
+Built by `make release` from source commit `d158ddd2ef492b8e909ae2c7bf1cf57b999ae184`, tag `release-v2`.
 Files here are generated: change them in the source repository and release again.

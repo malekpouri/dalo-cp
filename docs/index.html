@@ -21,7 +21,7 @@ h1{font-size:clamp(30px,6vw,44px);line-height:1.12;margin:0 0 16px;letter-spacin
 .links a:hover{border-color:var(--accent);color:var(--accent)}
 h2{font-size:25px;line-height:1.25;margin:52px 0 10px;letter-spacing:-.008em}
 p{margin:0 0 16px}a{color:var(--accent)}
-figure{margin:24px 0 8px}figure img{display:block;width:100%;height:auto}
+figure{margin:24px 0 8px}.hero{margin:30px 0 0}.review{background:var(--accent-soft);border-radius:12px;padding:6px 22px 8px;margin-top:40px}.review h2{margin-top:18px}figure img{display:block;width:100%;height:auto}
 figcaption{font:13.5px/1.5 ui-sans-serif,system-ui,sans-serif;color:var(--muted);margin-top:8px}
 .verdicts{display:grid;gap:10px;margin:20px 0}
 .v{display:grid;grid-template-columns:96px 1fr;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 16px}
@@ -39,12 +39,25 @@ footer{margin-top:64px;padding:26px 0 54px;border-top:1px solid var(--line);font
 <body>
 <div class="wrap">
 <header>
-<p class="eyebrow">Research code · manuscript in preparation</p>
+<p class="eyebrow">For reviewers · manuscript not yet peer reviewed</p>
 <h1>When labels arrive late, how much coverage is possible?</h1>
 <p class="lede">Prediction intervals adapt by seeing their own errors. If the labels of some inputs arrive late, a method can look fine overall while a slow region has shifted and stays badly under-covered.</p>
 <p class="byline">Mohammad Malekpouri and Somayeh Lotfi · Department of Computer Engineering, B.A.C., Islamic Azad University, Bandar Abbas, Iran</p>
-<div class="links"><a href="https://github.com/malekpouri/dalo-cp">Code on GitHub</a><a href="reproduce.html">Reproduce the results</a><a href="protocol.html">Pre-registered protocols</a></div>
+<div class="links"><a href="#review">How to review</a><a href="https://github.com/malekpouri/dalo-cp">Code on GitHub</a><a href="reproduce.html">Reproduce the results</a><a href="protocol.html">Pre-registered protocols</a></div>
 </header>
+
+<figure class="hero"><img src="figures/F1_timeline.png" alt="Two rows of rounds. Labels in the fast region arrive soon after each interval is issued. Labels in the slow region arrive much later, so after a shift there is a stretch with no post-shift label."><figcaption>Labels of a slow region arrive late, so a shift goes unseen for a while. Illustration.</figcaption></figure>
+
+<section id="review" class="review">
+<h2>For reviewers</h2>
+<p>This page supports review of the article <em>Conformal Prediction with Local Guarantees under Distribution Shift and Covariate-Dependent Label Delay</em>. The manuscript itself is not posted here. To review it, please ask the corresponding author, <a href="mailto:m.malekpouri@iau.ir">Mohammad Malekpouri</a>.</p>
+<p>Most useful to check:</p>
+<ul>
+<li><strong>The theory.</strong> Is the stream-level bound correct, and is its false-alarm assumption reasonable? Is any of it already known in change detection with delayed observations?</li>
+<li><strong>The evidence.</strong> Do the conclusions follow from the results? The criteria are in the <a href="protocol.html">protocols</a>, and the summaries are in <a href="https://github.com/malekpouri/dalo-cp/tree/main/results/summaries">the repository</a>.</li>
+<li><strong>Reproducibility.</strong> Can you rebuild the results by following <a href="reproduce.html">these steps</a>?</li>
+</ul>
+</section>
 
 <h2>The findings, including what failed</h2>
 <div class="verdicts">
