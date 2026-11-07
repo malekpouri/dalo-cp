@@ -1,0 +1,4 @@
+# ELEC2 with simulated delays. Build first with: make prepare NAME=elec2
+kind: elec2
+n_regions: 3
+segment: validation

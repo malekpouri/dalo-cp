@@ -1,0 +1,48 @@
+# Allowlist for `make release` (PROJECT_BRIEF §13.1). Only these paths reach github_repo/.
+include:
+  - LICENSE
+  - CITATION.cff
+  - Makefile
+  - .gitignore
+  - .env.example
+  - .dockerignore
+  - docker/
+  - configs/
+  - src/
+  - dashboard/
+  - tests/
+  - scripts/make_m5_configs.py
+  - scripts/make_m5_trace_configs.py
+  - scripts/run_m5.sh
+  - scripts/m5_sensitivity.py
+  - scripts/m5_analysis.py
+  - scripts/theory_checks.py
+  - scripts/theory_summary.py
+  - scripts/theory_tvstar.py
+  - scripts/theory_stream.py
+# Sources whose target path differs from the main repository.
+map:
+  release/README.md: README.md
+  release/download_datasets.sh: scripts/download_datasets.sh
+  release/docs/: docs/
+  paper/figures/F3_recovery.png: docs/figures/F3_recovery.png
+  paper/figures/F5_gap_vs_delay.png: docs/figures/F5_gap_vs_delay.png
+  paper/figures/F7_tradeoff.png: docs/figures/F7_tradeoff.png
+  paper/figures/F8_trace_delay.png: docs/figures/F8_trace_delay.png
+  paper/figures/F9_real_data.png: docs/figures/F9_real_data.png
+  paper/figures/F11_stream_bound.png: docs/figures/F11_stream_bound.png
+# Frozen summaries only; matched against results/summaries/.
+summaries:
+  - m2b_confirm.json
+  - m3confirm_gate.json
+  - m5_results.json
+  - m5_sensitivity.json
+  - trace_diagnostics.json
+  - theory_summary.json
+  - theory_tvstar.json
+  - theory_stream.json
+# A release fails if any path below appears, whichever rule put it there.
+forbidden: [datasets/, runs/, .env, reports/, literature/, paper/, theory/, PROJECT_BRIEF.md, "*.pdf", "*.tex", "*.pkl", "*.parquet", "*.zip"]
+max_file_bytes: 10000000
+# E-mail addresses allowed in a release, and only in these files.
+allowed_email_files: [CITATION.cff]

@@ -1,0 +1,4 @@
+# Region-dependent geometric delays: fast region mean 1, slow region mean 50 (rounds).
+type: geometric
+per_region: [1, 50]
+d_max: 500

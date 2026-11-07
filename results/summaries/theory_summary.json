@@ -1,0 +1,446 @@
+{
+ "c1_c3": {
+  "instances": 360,
+  "violations": 0,
+  "window_violations": 0,
+  "max_ratio": 0.4167268089755574,
+  "window_max_ratio": 0.9880952380952379
+ },
+ "c2c": {
+  "q_marginal_90": 0.8570996859073704,
+  "predicted_slow": 0.8042766724879509,
+  "predicted_fast": 0.9957233275120492,
+  "simulated_slow": 0.8052148809709985,
+  "simulated_fast": 0.9949508939519702,
+  "simulated_marginal": 0.9000080000000001
+ },
+ "tv_star": {
+  "violations": 0,
+  "never_weaker": true,
+  "nontrivial": 99,
+  "nontrivial_fixed": 71,
+  "nontrivial_geometric": 28,
+  "mean_slack_nontrivial": 0.19064503233643568
+ },
+ "widening": {
+  "comparisons": 560,
+  "violations_beyond_3se": 0,
+  "nontrivial": 72,
+  "nontrivial_and_a_above_half_bound": 0,
+  "max_a_over_bound_nontrivial": 0.4799430792962877
+ },
+ "bound": {
+  "comparisons": 350,
+  "violations": 0,
+  "nontrivial": 78,
+  "nontrivial_fixed": 71,
+  "nontrivial_geometric": 7,
+  "blind_window_comparisons": 70,
+  "mean_slack_blind": 0.09804018410274562,
+  "min_slack_nontrivial": 0.03363052695351443
+ },
+ "lag_prediction_stable_cases": {
+  "regional_aci/fixed": {
+   "rows": [
+    [
+     20,
+     40.0,
+     49
+    ]
+   ],
+   "mean_abs_rel_error": 0.225
+  },
+  "regional_aci/geometric": {
+   "rows": [
+    [
+     20,
+     40.0,
+     48
+    ],
+    [
+     50,
+     60.0,
+     67
+    ]
+   ],
+   "mean_abs_rel_error": 0.15833333333333333
+  },
+  "dalo_cp/fixed": {
+   "rows": [
+    [
+     20,
+     60.0,
+     69
+    ],
+    [
+     50,
+     80.0,
+     99
+    ],
+    [
+     100,
+     130.0,
+     149
+    ],
+    [
+     200,
+     230.0,
+     249
+    ],
+    [
+     400,
+     440.0,
+     449
+    ]
+   ],
+   "mean_abs_rel_error": 0.1273434174521131
+  },
+  "dalo_cp/geometric": {
+   "rows": [
+    [
+     20,
+     60.0,
+     69
+    ],
+    [
+     50,
+     70.0,
+     92
+    ],
+    [
+     100,
+     70.0,
+     120
+    ],
+    [
+     200,
+     90.0,
+     160
+    ],
+    [
+     400,
+     100.0,
+     218
+    ]
+   ],
+   "mean_abs_rel_error": 0.6272698412698412
+  },
+  "tracker_e0.02/fixed": {
+   "rows": [
+    [
+     20,
+     210.0,
+     229
+    ],
+    [
+     50,
+     220.0,
+     259
+    ],
+    [
+     100,
+     260.0,
+     309
+    ],
+    [
+     200,
+     350.0,
+     409
+    ],
+    [
+     400,
+     560.0,
+     609
+    ]
+   ],
+   "mean_abs_rel_error": 0.14245637695637697
+  },
+  "tracker_e0.02/geometric": {
+   "rows": [
+    [
+     20,
+     220.0,
+     229
+    ],
+    [
+     50,
+     220.0,
+     259
+    ],
+    [
+     100,
+     280.0,
+     305
+    ],
+    [
+     200,
+     350.0,
+     380
+    ],
+    [
+     400,
+     440.0,
+     493
+    ]
+   ],
+   "mean_abs_rel_error": 0.10272727272727274
+  },
+  "tracker_e0.1/fixed": {
+   "rows": [
+    [
+     20,
+     100.0,
+     119
+    ],
+    [
+     50,
+     120.0,
+     149
+    ],
+    [
+     100,
+     170.0,
+     199
+    ]
+   ],
+   "mean_abs_rel_error": 0.2007516339869281
+  },
+  "tracker_e0.1/geometric": {
+   "rows": [
+    [
+     20,
+     120.0,
+     119
+    ],
+    [
+     50,
+     130.0,
+     147
+    ],
+    [
+     100,
+     160.0,
+     184
+    ],
+    [
+     200,
+     210.0,
+     239
+    ]
+   ],
+   "mean_abs_rel_error": 0.10679945054945054
+  },
+  "tracker_e0.5/fixed": {
+   "rows": [
+    [
+     20,
+     50.0,
+     59
+    ]
+   ],
+   "mean_abs_rel_error": 0.18
+  },
+  "tracker_e0.5/geometric": {
+   "rows": [
+    [
+     20,
+     50.0,
+     59
+    ],
+    [
+     50,
+     70.0,
+     80
+    ]
+   ],
+   "mean_abs_rel_error": 0.16142857142857142
+  }
+ },
+ "excess_vs_blind_prediction": [
+  {
+   "method": "tracker_e0.02",
+   "D": 50,
+   "observed": 9.940000000000005,
+   "predicted": 13.3532762608603
+  },
+  {
+   "method": "tracker_e0.02",
+   "D": 100,
+   "observed": 21.98500000000002,
+   "predicted": 26.67806880288658
+  },
+  {
+   "method": "tracker_e0.02",
+   "D": 200,
+   "observed": 48.08500000000002,
+   "predicted": 53.26194555518229
+  },
+  {
+   "method": "tracker_e0.02",
+   "D": 400,
+   "observed": 99.51700000000002,
+   "predicted": 106.20313977662326
+  },
+  {
+   "method": "tracker_e0.1",
+   "D": 50,
+   "observed": 9.481500000000006,
+   "predicted": 13.200864045074129
+  },
+  {
+   "method": "tracker_e0.1",
+   "D": 100,
+   "observed": 21.842,
+   "predicted": 26.121872040639726
+  },
+  {
+   "method": "tracker_e0.1",
+   "D": 200,
+   "observed": 42.241500000000016,
+   "predicted": 48.25015139696583
+  }
+ ],
+ "stability": [
+  {
+   "method": "regional_aci",
+   "kind": "fixed",
+   "m": 100,
+   "width_ratio_no_shift": 1.2701230210536552,
+   "stab": null
+  },
+  {
+   "method": "regional_aci",
+   "kind": "fixed",
+   "m": 400,
+   "width_ratio_no_shift": 1.5034967743901881,
+   "stab": null
+  },
+  {
+   "method": "regional_aci",
+   "kind": "geometric",
+   "m": 100,
+   "width_ratio_no_shift": 1.1087925445961822,
+   "stab": null
+  },
+  {
+   "method": "regional_aci",
+   "kind": "geometric",
+   "m": 400,
+   "width_ratio_no_shift": 1.2373996207595972,
+   "stab": null
+  },
+  {
+   "method": "dalo_cp",
+   "kind": "fixed",
+   "m": 100,
+   "width_ratio_no_shift": 1.0172483586602692,
+   "stab": null
+  },
+  {
+   "method": "dalo_cp",
+   "kind": "fixed",
+   "m": 400,
+   "width_ratio_no_shift": 1.0636276602675572,
+   "stab": null
+  },
+  {
+   "method": "dalo_cp",
+   "kind": "geometric",
+   "m": 100,
+   "width_ratio_no_shift": 1.044714076442852,
+   "stab": null
+  },
+  {
+   "method": "dalo_cp",
+   "kind": "geometric",
+   "m": 400,
+   "width_ratio_no_shift": 1.076579189692637,
+   "stab": null
+  },
+  {
+   "method": "tracker_e0.02",
+   "kind": "fixed",
+   "m": 100,
+   "width_ratio_no_shift": 1.001293836419071,
+   "stab": 0.08945540714723882
+  },
+  {
+   "method": "tracker_e0.02",
+   "kind": "fixed",
+   "m": 400,
+   "width_ratio_no_shift": 1.0053656300530367,
+   "stab": 0.3551511279567914
+  },
+  {
+   "method": "tracker_e0.02",
+   "kind": "geometric",
+   "m": 100,
+   "width_ratio_no_shift": 1.0011443470051498,
+   "stab": 0.08945540714723882
+  },
+  {
+   "method": "tracker_e0.02",
+   "kind": "geometric",
+   "m": 400,
+   "width_ratio_no_shift": 1.002165730773738,
+   "stab": 0.3551511279567914
+  },
+  {
+   "method": "tracker_e0.1",
+   "kind": "fixed",
+   "m": 100,
+   "width_ratio_no_shift": 1.013642138518767,
+   "stab": 0.4472770357361941
+  },
+  {
+   "method": "tracker_e0.1",
+   "kind": "fixed",
+   "m": 400,
+   "width_ratio_no_shift": 1.9556129873167254,
+   "stab": 1.775755639783957
+  },
+  {
+   "method": "tracker_e0.1",
+   "kind": "geometric",
+   "m": 100,
+   "width_ratio_no_shift": 1.0095492396096384,
+   "stab": 0.4472770357361941
+  },
+  {
+   "method": "tracker_e0.1",
+   "kind": "geometric",
+   "m": 400,
+   "width_ratio_no_shift": 1.0368391206467051,
+   "stab": 1.775755639783957
+  },
+  {
+   "method": "tracker_e0.5",
+   "kind": "fixed",
+   "m": 100,
+   "width_ratio_no_shift": 3.0075717794515686,
+   "stab": 2.2363851786809703
+  },
+  {
+   "method": "tracker_e0.5",
+   "kind": "fixed",
+   "m": 400,
+   "width_ratio_no_shift": 16.874907230660654,
+   "stab": 8.878778198919784
+  },
+  {
+   "method": "tracker_e0.5",
+   "kind": "geometric",
+   "m": 100,
+   "width_ratio_no_shift": 1.1620958091288363,
+   "stab": 2.2363851786809703
+  },
+  {
+   "method": "tracker_e0.5",
+   "kind": "geometric",
+   "m": 400,
+   "width_ratio_no_shift": 1.6232400137565446,
+   "stab": 8.878778198919784
+  }
+ ],
+ "e0_kappa_at_q0": 0.3661739497224981
+}

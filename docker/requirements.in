@@ -1,0 +1,13 @@
+numpy
+scipy
+pandas
+pyarrow
+scikit-learn
+lightgbm
+pyyaml
+matplotlib
+plotly
+streamlit
+psutil
+nvidia-ml-py
+pytest

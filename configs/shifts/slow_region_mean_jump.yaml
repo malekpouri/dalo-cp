@@ -1,0 +1,3 @@
+# Abrupt local concept shift in the slow region only.
+shifts:
+  - {kind: mean, regions: [1], start: 3000, size: 0.6, profile: abrupt}

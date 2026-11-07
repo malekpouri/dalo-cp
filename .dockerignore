@@ -1,0 +1,3 @@
+# Code is bind-mounted at runtime; the image needs only the dependency lock.
+*
+!docker/requirements.lock

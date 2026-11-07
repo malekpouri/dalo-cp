@@ -1,0 +1,10 @@
+# Two equal-width regions of x0 in [0, 1]; region 1 is the slow-feedback region.
+kind: synthetic
+n_rounds: 6000
+n_regions: 2
+n_nuisance: 1
+region_weights: [1.0, 1.0]
+amplitude: 1.0
+noise: 0.3
+n_train: 2000
+model_iters: 100

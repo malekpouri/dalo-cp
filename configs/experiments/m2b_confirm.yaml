@@ -1,0 +1,20 @@
+# M2b confirmatory run (author decision A, 2026-11-05). Identical simulation to m2_feasibility.yaml; fresh seeds.
+# Pre-registered in reports/decisions.md "M2b protocol" before any run.
+# Hyperparameters are the M0 defaults (configs/methods/*.yaml); nothing here was tuned on M2 results.
+name: m2b_confirm
+alpha: 0.1
+dataset: {use: synthetic_two_region}            # n=6000, 2 regions, noise sd 0.3, frozen GBT base model
+delay: {use: two_region_geometric}              # per_region overridden by the grid below
+shifts: {use: slow_region_mean_jump}            # +0.6 mean jump in region 1 (slow) at t=3000
+eval: {window: 100}
+runtime: {log_every: 500}
+methods:
+  - {use: split_cp}
+  - {use: aci}
+  - {use: aci, oracle_no_delay: true}
+  - {use: regional_aci}
+  - {use: regional_aci, oracle_no_delay: true}
+seeds: {start: 100, count: 100}   # fresh seeds; M2 used 0-99
+grid:
+  # fast region mean delay 1 (D=1 always); slow region mean delay = heterogeneity ratio
+  delay.per_region: [[1, 1], [1, 5], [1, 20], [1, 50], [1, 100]]

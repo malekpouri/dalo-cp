@@ -1,0 +1,77 @@
+# Run through the Makefile, which calls:
+#   docker compose --project-directory . -f docker/compose.yaml --env-file .env ...
+# Relative paths below are relative to the project root.
+name: dalo-cp
+
+x-base: &base
+  build:
+    context: .
+    dockerfile: docker/Dockerfile
+    args:
+      HOST_UID: ${HOST_UID:-1000}
+      HOST_GID: ${HOST_GID:-1000}
+  image: dalo-cp:dev
+  user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+  init: false
+  stop_signal: SIGTERM
+  stop_grace_period: 60s
+  environment:
+    # One thread per process: sweeps parallelise across runs, so library thread pools
+    # (OpenMP in scikit-learn/LightGBM, BLAS) would oversubscribe the CPU.
+    OMP_NUM_THREADS: "1"
+    OPENBLAS_NUM_THREADS: "1"
+    MKL_NUM_THREADS: "1"
+    DALOCP_DATA_RAW: /data/raw
+    DALOCP_DATA_PROCESSED: /data/processed
+    DALOCP_DATA_MANIFESTS: /data/manifests
+  volumes:
+    - type: bind
+      source: .
+      target: /work
+    - type: bind
+      source: ${DATASET_DIR:?set DATASET_DIR in .env}/dalo_cp/raw
+      target: /data/raw
+      read_only: true
+    - type: bind
+      source: ${DATASET_DIR}/dalo_cp/processed
+      target: /data/processed
+    - type: bind
+      source: ${DATASET_DIR}/dalo_cp/manifests
+      target: /data/manifests
+
+services:
+  runner:
+    <<: *base
+    command: ["python", "-m", "delayed_local_cp.cli", "--help"]
+
+  tests:
+    <<: *base
+    command: ["python", "-m", "pytest", "-q", "tests"]
+
+  dashboard:
+    <<: *base
+    command:
+      - streamlit
+      - run
+      - dashboard/app.py
+      - --server.address=0.0.0.0
+      - --server.port=8501
+      - --server.headless=true
+      - --browser.gatherUsageStats=false
+    ports:
+      # Bound to localhost only; never exposed publicly.
+      - "127.0.0.1:${DASHBOARD_PORT:-8501}:8501"
+    restart: unless-stopped
+
+  # Optional GPU runner: `docker compose --profile gpu run --rm runner-gpu ...`
+  runner-gpu:
+    <<: *base
+    profiles: ["gpu"]
+    command: ["nvidia-smi"]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu, utility]

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DALO-CP: conformal prediction when labels arrive late</title>
+<meta name="description" content="Coverage limits for prediction intervals under input-dependent label delay, a delay-aware method, and a pre-registered evaluation that reports what failed.">
+<style>
+:root{--bg:#fbfaf7;--surface:#fff;--ink:#1d2329;--muted:#59636e;--line:#e3e0d8;--accent:#b84a00;--accent-soft:#fbeee4;--good:#0b6b4f;--bad:#a4330f;--neutral:#55606b;--code:#f3f1ec}
+@media (prefers-color-scheme:dark){:root{--bg:#14171a;--surface:#1c2024;--ink:#e9e7e2;--muted:#a3abb3;--line:#30363c;--accent:#f0935a;--accent-soft:#2c2118;--good:#58c9a3;--bad:#f08a68;--neutral:#a3abb3;--code:#23282d}figure img{background:#fff;border-radius:6px;padding:6px}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Charter,"Bitstream Charter","Iowan Old Style",Georgia,serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+header{padding:64px 0 28px;border-bottom:1px solid var(--line)}
+.eyebrow{font:600 12.5px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
+h1{font-size:clamp(30px,6vw,44px);line-height:1.12;margin:0 0 16px;letter-spacing:-.015em}
+.lede{font-size:20px;line-height:1.5;color:var(--muted);margin:0}
+.byline{font:14px/1.5 ui-sans-serif,system-ui,sans-serif;color:var(--muted);margin:22px 0 0}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+.links a{font:600 14px/1 ui-sans-serif,system-ui,sans-serif;padding:10px 14px;border:1px solid var(--line);border-radius:7px;color:var(--ink);text-decoration:none;background:var(--surface)}
+.links a:hover{border-color:var(--accent);color:var(--accent)}
+h2{font-size:25px;line-height:1.25;margin:52px 0 10px;letter-spacing:-.008em}
+p{margin:0 0 16px}a{color:var(--accent)}
+figure{margin:24px 0 8px}figure img{display:block;width:100%;height:auto}
+figcaption{font:13.5px/1.5 ui-sans-serif,system-ui,sans-serif;color:var(--muted);margin-top:8px}
+.verdicts{display:grid;gap:10px;margin:20px 0}
+.v{display:grid;grid-template-columns:96px 1fr;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 16px}
+.tag{font:700 12px/1.3 ui-sans-serif,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.04em;padding-top:4px}
+.pass{color:var(--good)}.fail{color:var(--bad)}.note{color:var(--neutral)}
+.v p{margin:0;font-size:16px;line-height:1.5}.v b{display:block;margin-bottom:2px}
+.formula{background:var(--code);border-radius:8px;padding:14px 16px;overflow-x:auto;font:15px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:14px 0 16px}
+code{background:var(--code);border-radius:4px;padding:1px 5px;font:14.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre{background:var(--code);border-radius:8px;padding:14px 16px;overflow-x:auto;font:14.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}pre code{background:none;padding:0}
+ul{padding-left:20px;margin:0 0 16px}li{margin-bottom:7px}
+footer{margin-top:64px;padding:26px 0 54px;border-top:1px solid var(--line);font:13.5px/1.6 ui-sans-serif,system-ui,sans-serif;color:var(--muted)}
+@media (max-width:520px){.v{grid-template-columns:1fr;gap:4px}.tag{padding-top:0}body{font-size:16.5px}.lede{font-size:18px}header{padding-top:40px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<p class="eyebrow">Research code · manuscript in preparation</p>
+<h1>When labels arrive late, how much coverage is possible?</h1>
+<p class="lede">Prediction intervals adapt by seeing their own errors. If the labels of some inputs arrive late, a method can look fine overall while a slow region has shifted and stays badly under-covered.</p>
+<p class="byline">Mohammad Malekpouri and Somayeh Lotfi · Department of Computer Engineering, B.A.C., Islamic Azad University, Bandar Abbas, Iran</p>
+<div class="links"><a href="https://github.com/malekpouri/dalo-cp">Code on GitHub</a><a href="reproduce.html">Reproduce the results</a><a href="protocol.html">Pre-registered protocols</a></div>
+</header>
+
+<h2>The findings, including what failed</h2>
+<div class="verdicts">
+<div class="v"><div class="tag pass">Holds</div><p><b>An explicit limit for any threshold method</b>On a Gaussian two-point instance, the label information available after a shift is an explicit functional of the delay law, including delay that depends on the input.</p></div>
+<div class="v"><div class="tag pass">Passed</div><p><b>Robustness on 13 designs, fixed in advance</b>DALO-CP's largest regret was 0.006, against 0.053 for the best baseline family. Fresh seeds and designs not used for tuning, though we also wrote those designs.</p></div>
+<div class="v"><div class="tag fail">Failed</div><p><b>Clear superiority over the baselines</b>We required a gain of at least 0.03. Gains were at most +0.018. On ELEC2, intervals were also about 20% wider.</p></div>
+<div class="v"><div class="tag fail">Behind</div><p><b>Real delays on TRACE</b>Regret of 0.050 and 0.079, last of ten method families on one partition. A simpler variant did better. Delay itself did cost real coverage, which is why the problem matters.</p></div>
+</div>
+<p>We do not recommend DALO-CP under strongly skewed real delays without further work. The limits are the firmer result.</p>
+
+<h2>The failure</h2>
+<p>A region shifts, and its labels are slow. Until post-shift labels arrive, no method has evidence of the change. Global methods then keep overall coverage near target by over-covering other regions, and the slow region stays low.</p>
+<figure><img src="figures/F3_recovery.png" alt="Coverage in the slow region against rounds since the shift. All methods drop sharply after the shift. Regional methods return to 0.9; global methods stay near 0.8." loading="lazy"><figcaption>Coverage in the slow region after a shift, pooled over 100 seeds.</figcaption></figure>
+<figure><img src="figures/F5_gap_vs_delay.png" alt="Worst region-window coverage falls as mean delay grows from 1 to 400, more steeply under fixed than geometric delay." loading="lazy"><figcaption>The cost grows with delay, and fixed delay is worse than geometric at the same mean.</figcaption></figure>
+
+<h2>The limit</h2>
+<p>With a shift in region <em>r</em> at round <em>t₀</em>, the information in labels that have arrived by lag <em>L</em> is</p>
+<div class="formula">I(L) = Σ_r K_r · p_r · Σ_{a≤L} F_r(a),   K_r = δ_r² / (2σ²)</div>
+<p>where <code>F_r</code> is the delay law of the region. Any threshold method then satisfies</p>
+<div class="formula">coverage at t ≤ κ̄(E₀[q_t], δ_r) + TV(I(t − t₀))</div>
+<p>This gives a blind period under fixed delay, and a width that must be paid even when nothing has shifted. These ideas have earlier forms in bandit regret and change detection. What we add is the statement for coverage, with the delay law explicit.</p>
+<p>With an unknown change time, a constraint on the whole stream adds a logarithmic cost in the horizon, and a near-matching detector shows how close that bound is on our example. A per-round width allowance does not force it.</p>
+<figure><img src="figures/F11_stream_bound.png" alt="Lag needed for coverage 0.85 against the horizon. The detector's guaranteed lag sits a little above the lower bound, for geometric and fixed delays." loading="lazy"><figcaption>Lower bound (dashed) against the detector's guarantee (solid). Tightness is shown numerically, not proved.</figcaption></figure>
+
+<h2>Real delays</h2>
+<p>On TRACE, delay clearly differs across input regions. Delay is also linked to the label given the input, so <strong>TRACE lies outside the theorems above</strong> and these results neither confirm nor refute them.</p>
+<figure><img src="figures/F8_trace_delay.png" alt="Share of labels not yet arrived against time since the click, for three regions, falling to zero at seven days." loading="lazy"><figcaption>Labels still pending, by region, on holdout days.</figcaption></figure>
+<figure><img src="figures/F9_real_data.png" alt="Worst-window coverage by method on ELEC2 and two TRACE partitions. DALO-CP is the best method with delays on ELEC2, and mid-table or last on TRACE." loading="lazy"><figcaption>Worst-window coverage. DALO-CP is highlighted; the diamond is its no-delay reference. ELEC2's delays are simulated.</figcaption></figure>
+
+<h2>Limits of this work</h2>
+<ul>
+<li>The bounds are two-point arguments on Gaussian residuals, for symmetric intervals around a frozen predictor.</li>
+<li>The stream-level result assumes whole-stream control that the methods we tested do not have.</li>
+<li>The proofs were reviewed by the authors, not by an outside reader, and the manuscript has not been peer reviewed.</li>
+<li>TRACE is one stream, conditional on conversion, so results say nothing about clicks without a purchase.</li>
+<li>We found no equivalent result in a targeted search, but it was not systematic, so we make no claim of being first.</li>
+</ul>
+
+<h2>Run it</h2>
+<pre><code>git clone https://github.com/malekpouri/dalo-cp
+cd dalo-cp
+make env &amp;&amp; make build
+make test
+make smoke   # about a minute</code></pre>
+<p>Every experiment is a config file, with pinned dependencies and resumable runs. See <a href="reproduce.html">how to reproduce the results</a>.</p>
+
+<footer>MIT licence. Datasets are not redistributed; the download script fetches them from their sources. Claude Code (Anthropic) helped write software, run experiments, and draft text and proofs, and ChatGPT (OpenAI) assisted in rewriting text, under the authors' oversight and final approval.</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# End-to-end pipeline check (make smoke). Small on purpose; not a result.
+name: smoke
+alpha: 0.1
+dataset: {use: synthetic_two_region, n_rounds: 3000, n_train: 1000, model_iters: 50}
+delay: {use: two_region_geometric, per_region: [1, 30]}
+shifts: [{kind: mean, regions: [1], start: 1500, size: 0.6, profile: abrupt}]
+eval: {window: 100}
+runtime: {log_every: 100, checkpoint_every_rounds: 1000}
+methods:
+  - {use: split_cp}
+  - {use: aci}
+  - {use: regional_aci}
+  - {use: regional_aci, oracle_no_delay: true}
+seeds: [0, 1]

@@ -1,0 +1,5 @@
+# TRACE with real delays. Build first with: make prepare NAME=trace, then NAME=trace_models. Protocol: reports/decisions.md.
+kind: trace
+n_regions: 3
+n_rounds: 50000
+partition: P

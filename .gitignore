@@ -1,0 +1,39 @@
+# Data and run outputs (never committed)
+/datasets/
+/runs/
+github_repo/
+*.partial
+
+# Environment and secrets
+.env
+*.key
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.venv/
+
+# LaTeX build products
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.synctex.gz
+paper/main.pdf
+
+# Figure previews are regenerated; selected final PDFs are committed explicitly
+paper/figures/*.png
+paper/figures/dev/
+
+# Misc
+.DS_Store
+*.swp

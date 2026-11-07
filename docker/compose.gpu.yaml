@@ -1,0 +1,11 @@
+# Optional overlay added by the Makefile when the host has an NVIDIA GPU (GPU=auto).
+# It lets the dashboard read GPU utilisation; experiments run on CPU by default.
+services:
+  dashboard:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [utility]
